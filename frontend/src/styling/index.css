@@ -22,6 +22,17 @@ body {
   place-items: center;
 }
 
+.formPageContainer {
+  margin-top: 5em;
+  place-items: center;
+  display: grid;
+  justify-content: center; 
+}
+
+.formContainer {
+  width: 40em;
+}
+
 .taskCard {
   background-color: #bbcde5;
   width: 40em;
@@ -95,3 +106,23 @@ hr {
   color: #686868;
 }
 
+.submitButton {
+  margin-top: 2em;
+  width: 100%;
+  background-color: #e8871e;
+  border: none;
+  padding: 0.5em;
+  border-radius: 5px;
+  font-size: medium;
+  color: #ffffff;
+}
+
+.submitButton:hover {
+  cursor: pointer;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    rgba(232, 135, 30, 1);
+}
+
+.errorMessage {
+  color: red;
+}

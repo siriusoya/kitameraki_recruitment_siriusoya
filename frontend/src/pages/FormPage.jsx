@@ -1,55 +1,78 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import { TextField, MaskedTextField } from "@fluentui/react/lib/TextField";
+import { useNavigate } from "react-router-dom";
 import { Stack } from "@fluentui/react/lib/Stack";
 
-const stackTokens = { childrenGap: 50 };
-const iconProps = { iconName: "Calendar" };
-const stackStyles = { root: { width: 650 } };
-const columnProps = {
-  tokens: { childrenGap: 15 },
-  styles: { root: { width: 300 } },
-};
-
 function FormPage() {
+  const [taskInput, setTaskInput] = useState({
+    title: "",
+    description: "",
+  });
+
+  const [errorMessage, setErrorMessage] = useState();
+
+  const navigate = useNavigate();
+
+  function addTask(taskInput) {
+    fetch("http://localhost:3000/tasks/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(taskInput),
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error("Internal Server Error");
+      })
+      .then(() => navigate("/"))
+      .catch((err) => console.log(err));
+  }
+
+  const handleSubmit = () => {
+    if (!taskInput.title.length) {
+      setErrorMessage('Title is required!')
+    } else {
+      addTask(taskInput);
+    }
+    
+  };
+
   return (
     <>
-      <Stack>
-        <TextField label="Standard" />
-      </Stack>
-
-      <Stack horizontal tokens={stackTokens} styles={stackStyles}>
-        <Stack {...columnProps}>
-          <TextField label="Standard" />
-          <TextField label="Disabled" disabled defaultValue="I am disabled" />
-          <TextField label="Read-only" readOnly defaultValue="I am read-only" />
-          <TextField label="Required " required />
-          <TextField ariaLabel="Required without visible label" required />
-          <TextField label="With error message" errorMessage="Error message" />
-        </Stack>
-        <Stack {...columnProps}>
-          <MaskedTextField
-            label="With input mask"
-            mask="m\ask: (999) 999 - 9999"
-            title="A 10 digit number"
-          />
-          <TextField label="With an icon" iconProps={iconProps} />
-          <TextField
-            label="With placeholder"
-            placeholder="Please enter text here"
-          />
-          <TextField
-            label="Disabled with placeholder"
-            disabled
-            placeholder="I am disabled"
-          />
-          <TextField
-            label="Password with reveal button"
-            type="password"
-            canRevealPassword
-            revealPasswordAriaLabel="Show password"
-          />
-        </Stack>
-      </Stack>
+      <div className="formPageContainer">
+        <h1 className="taskListPageTitle">Add a new task</h1>
+        <p className="errorMessage">{errorMessage}</p>
+        <div className="formContainer">
+          <Stack tokens={{ childrenGap: 15 }}>
+            <TextField
+              label="Title"
+              required
+              value={taskInput.title}
+              onChange={(e) => {
+                setTaskInput({
+                  ...taskInput,
+                  title: e.target.value,
+                });
+              }}
+            />
+            <TextField
+              label="Description"
+              multiline
+              rows={4}
+              value={taskInput.description}
+              onChange={(e) => {
+                setTaskInput({
+                  ...taskInput,
+                  description: e.target.value,
+                });
+              }}
+            />
+          </Stack>
+          <button className="submitButton" onClick={handleSubmit}>Submit</button>
+        </div>
+      </div>
     </>
   );
 }

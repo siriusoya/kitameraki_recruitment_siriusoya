@@ -26,6 +26,19 @@ class Controller {
       }
     });
   }
+
+  static addTask(req, res) {
+    const { title, description } = req.body;
+    Model.addTask(title, description, (err, newTask) => {
+        if(err) {
+          res.status(500).json({ message: "Internal server error" });
+        } else {
+          res.status(201).json({
+            message: "Task has been added successfully",
+          });
+        }
+    });
+}
 }
 
 module.exports = Controller;

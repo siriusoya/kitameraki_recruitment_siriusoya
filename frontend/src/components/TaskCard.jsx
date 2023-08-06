@@ -30,7 +30,7 @@ function TaskCard(props) {
 
       async function deleteHandler(e, taskId) {
         e.preventDefault();
-        await deleteTask(taskId);
+        deleteTask(taskId);
       }
   
       return (
