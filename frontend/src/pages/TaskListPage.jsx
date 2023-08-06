@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import TaskCard from "../components/TaskCard";
 
+
+
 function TaskListPage() {
   const navigate = useNavigate();
   const [taskList, setTaskList] = useState([]);
@@ -12,7 +14,7 @@ function TaskListPage() {
   }, []);
 
   function fetchTaskList() {
-    fetch("http://localhost:3000/", {
+    fetch("http://localhost:3000/tasks", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -42,7 +44,7 @@ function TaskListPage() {
         <h1 className="taskListPageTitle">My Task List</h1>
         <div className="taskCardContainer">
         { taskList.map((task) => {
-          return <TaskCard task={task} key={task.id} />;
+          return <TaskCard task={task} fetchTaskList={fetchTaskList} key={task.id} />;
         }) }
         </div>
       </div>

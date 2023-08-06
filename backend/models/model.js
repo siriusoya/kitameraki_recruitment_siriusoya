@@ -23,7 +23,7 @@ class Model {
 }
 
   static addTask(title, description, cb) {
-    this.readTask((err, tasks) => {
+    this.readTasks((err, tasks) => {
       if (err) {
         cb(err);
       } else {
@@ -43,7 +43,7 @@ class Model {
   }
 
   static deleteById(id, cb) {
-    this.readTask((err, tasks) => {
+    this.readTasks((err, tasks) => {
         if(err) {
             cb(err);
         } else {
