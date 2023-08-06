@@ -39,6 +39,20 @@ class Controller {
         }
     });
 }
+
+  static updateTask(req, res) {
+    const { taskId } = req.params;
+    const { title, description } = req.body;
+    Model.updateTask(taskId, title, description, (err, newTask) => {
+      if(err) {
+        res.status(500).json({ message: "Internal server error" });
+      } else {
+        res.status(201).json({
+          message: "Task has been updated successfully",
+        });
+      }
+  });
+  }
 }
 
 module.exports = Controller;

@@ -60,6 +60,26 @@ class Model {
         }
     })
 }
+
+  static updateTask(id, title, description, cb) {
+    this.readTasks((err, tasks) => {
+      if(err) {
+          cb(err);
+      } else {
+        const index = tasks.findIndex((el) => el.id == id);
+          tasks[index].title = title;
+          tasks[index].description = description;
+
+          this.saveTasks(tasks, (err) => {
+            if(err) {
+                cb(err);
+            } else {
+                cb(null);
+            }
+        })
+      }
+    })
+  }
 }
 
 module.exports = Model;

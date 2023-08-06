@@ -10,7 +10,7 @@ function FormPage() {
     description: "",
   });
 
-  const [errorMessage, setErrorMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState([]);
 
   const navigate = useNavigate();
 
@@ -32,8 +32,11 @@ function FormPage() {
 
   const handleSubmit = () => {
     if (!taskInput.title.length) {
-      setErrorMessage('Title is required!')
-    } else {
+      setErrorMessage((errorMessage) => [...errorMessage, 'Title is required!'])
+    } else if (taskInput.title.length > 42) {
+      setErrorMessage((errorMessage) => [...errorMessage, "Title can't contain more than 42 characters!"])
+    }
+    else {
       addTask(taskInput);
     }
     
@@ -43,7 +46,7 @@ function FormPage() {
     <>
       <div className="formPageContainer">
         <h1 className="taskListPageTitle">Add a new task</h1>
-        <p className="errorMessage">{errorMessage}</p>
+        <p className="errorMessage">{errorMessage[0]}</p>
         <div className="formContainer">
           <Stack tokens={{ childrenGap: 15 }}>
             <TextField

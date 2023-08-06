@@ -7,4 +7,6 @@ router.delete('/tasks/:taskId/delete', Controller.deleteTask);
 
 router.post('/tasks/add', Controller.addTask);
 
+router.put("/tasks/:taskId/edit", Controller.updateTask);
+
 module.exports = router;
