@@ -1,4 +1,4 @@
-class Tasks {
+class Task {
     constructor(id, title, description) {
         this.id = id;
         this.title = title;
@@ -7,8 +7,8 @@ class Tasks {
 }
 
 class Factory {
-    static createTasks(id, title, description) {
-        return new Tasks(id, title, description)
+    static createTask(id, title, description) {
+        return new Task(id, title, description)
     }
 
 }

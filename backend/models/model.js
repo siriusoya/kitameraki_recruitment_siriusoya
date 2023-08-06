@@ -2,7 +2,7 @@ const fs = require("fs");
 const Factory = require("./class.js");
 
 class Model {
-  static readTask(cb) {
+  static readTasks(cb) {
     fs.readFile("./data/tasks.json", "utf-8", (err, data) => {
       if (err) {
         cb(err);
@@ -28,7 +28,7 @@ class Model {
         cb(err);
       } else {
         const id = tasks.length ? tasks.at(-1).id + 1 : 1;
-        const newTask = Factory.createTasks(id, title, description);
+        const newTask = Factory.createTask(id, title, description);
         tasks.push(newTask);
 
         this.saveTasks(tasks, (err) => {
