@@ -55,7 +55,6 @@ function TaskCard(props) {
       .catch((err) => console.log(err));
   }
 
-  // Debounce function to delay the execution of a function
   const debounce = (func, delay) => {
     let timeoutId;
     return function (...args) {
@@ -66,36 +65,36 @@ function TaskCard(props) {
     };
   };
 
-  // Debounced version of the onChange handler
+  
   const debouncedHandleTitleChange = debounce((newTitle) => {
-    // Set the taskData immediately to provide instant feedback
+    
     setTaskData((prevTaskData) => ({
       ...prevTaskData,
       title: newTitle,
     }));
 
-    const updatedTaskData = { ...taskData, title: newTitle }; // Capture the updated taskData
+    const updatedTaskData = { ...taskData, title: newTitle }; 
 
-    // Delay the updateTask call by 500ms
+    
     setTimeout(() => {
       updateTask(updatedTaskData, task.id);
     });
-  }, 700); // Debounce with 150ms delay
+  }, 700); 
 
   const debouncedHandleDescriptionChange = debounce((newDescription) => {
-    // Set the taskData immediately to provide instant feedback
+    
     setTaskData((prevTaskData) => ({
       ...prevTaskData,
       description: newDescription,
     }));
 
-    const updatedTaskData = { ...taskData, description: newDescription }; // Capture the updated taskData
+    const updatedTaskData = { ...taskData, description: newDescription }; 
 
-    // Delay the updateTask call by 500ms
+    
     setTimeout(() => {
       updateTask(updatedTaskData, task.id);
     });
-  }, 700); // Debounce with 150ms delay
+  }, 700); 
 
   const handleTitleChange = (e) => {
     debouncedHandleTitleChange(e.target.value);

@@ -11,10 +11,12 @@
   },
   "dependencies": {
     "@fluentui/react": "^8.110.12",
+    "intersection-observer": "^0.12.2",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",
+    "scrollmagic": "^2.0.8",
     "sweetalert": "^2.1.2"
   },
   "devDependencies": {
