@@ -82,7 +82,7 @@ hr {
 .topnav {
   background-color: #a8c686;
   display: flex;
-  height: 75px;
+  height: 4.75em;
   align-items: center;
   position: fixed;
   top: 0;
@@ -150,4 +150,66 @@ hr {
   height: 3em;
   margin-top: 1em;
   margin-bottom: 3em;
+}
+
+.settingContainer {
+  margin-top: 4.75em;
+  display: grid;
+  grid-template-columns: 2fr 5fr; 
+  gap: 0;
+  height: 100%;
+}
+
+.controlImg {
+  height: 2em;
+  width: 2em;
+}
+
+.dropArea {
+  height: 7em;
+  width: 7em;
+}
+
+.controls {
+  position: fixed;
+  left: 0;
+  width: 13em;
+  height: 100%;
+  background-color: #bbcde5;
+  padding-left: 1em;
+}
+
+.forms {
+  margin-left: 23em;
+  margin-bottom: 2em;
+}
+
+.controlsCont {
+  height: 100%;
+}
+
+.iconContainer {
+  background-color: #f2f3ae;
+  width: 6em;
+  padding: 0.75em;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5em;
+}
+
+.compHr {
+  width: 12em;
+  margin-left: 0;
+  margin-bottom: 2em;
+}
+
+.formSettingPage {
+  width: 35em;
+}
+
+.optionalForms {
+  margin-bottom: 1.5em;
 }

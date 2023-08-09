@@ -1,0 +1,53 @@
+{
+  "hash": "ad0a3fa4",
+  "browserHash": "62be8e1b",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "aef86c34",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "e8853dc2",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "f4d1c5f4",
+      "needsInterop": false
+    },
+    "@fluentui/react/lib/TextField": {
+      "src": "../../node_modules/@fluentui/react/lib/TextField.js",
+      "file": "@fluentui_react_lib_TextField.js",
+      "fileHash": "733379b2",
+      "needsInterop": false
+    },
+    "@fluentui/react/lib/Stack": {
+      "src": "../../node_modules/@fluentui/react/lib/Stack.js",
+      "file": "@fluentui_react_lib_Stack.js",
+      "fileHash": "a390f70a",
+      "needsInterop": false
+    },
+    "sweetalert": {
+      "src": "../../node_modules/sweetalert/dist/sweetalert.min.js",
+      "file": "sweetalert.js",
+      "fileHash": "bd6c8903",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-EE257LXQ": {
+      "file": "chunk-EE257LXQ.js"
+    },
+    "chunk-ZAUFE7H7": {
+      "file": "chunk-ZAUFE7H7.js"
+    },
+    "chunk-UXIASGQL": {
+      "file": "chunk-UXIASGQL.js"
+    }
+  }
+}
