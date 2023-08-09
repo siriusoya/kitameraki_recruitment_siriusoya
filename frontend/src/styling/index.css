@@ -181,6 +181,7 @@ hr {
 
 .forms {
   margin-left: 23em;
+  margin-bottom: 2em;
 }
 
 .controlsCont {
@@ -209,3 +210,6 @@ hr {
   width: 35em;
 }
 
+.optionalForms {
+  margin-bottom: 1.5em;
+}

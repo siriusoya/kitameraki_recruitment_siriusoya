@@ -3,11 +3,12 @@ import { TextField } from "@fluentui/react/lib/TextField";
 import { SpinButton } from "@fluentui/react/lib/SpinButton";
 import { DatePicker } from "@fluentui/react";
 import { Stack } from "@fluentui/react/lib/Stack";
+import { registerIcons } from '@fluentui/react/lib/Styling';
+import { ChevronDownIcon } from '@fluentui/react-icons-mdl2';
 
 export default function FormData({ formData }) {
-  const initialValues = formData.reduce((total, current) => {
-    return { ...total, [current.id]: "" };
-  }, {});
+
+  
 
   const renderInput = (inputType) => {
     switch (inputType) {
@@ -60,6 +61,7 @@ export default function FormData({ formData }) {
                   <div ref={provided.innerRef} {...provided.draggableProps}>
                     <div
                       {...provided.dragHandleProps}
+                      className="optionalForms"
                     >
                       {renderInput(data.type)}
                     </div>
@@ -72,8 +74,8 @@ export default function FormData({ formData }) {
         )}
       </Droppable>
       <div>
-        <button onClick={handleSubmit} variant="contained" color="primary">
-          Submit
+        <button className="submitButton" onClick={handleSubmit} variant="contained" color="primary">
+          Update Form
         </button>
       </div>
     </div>
