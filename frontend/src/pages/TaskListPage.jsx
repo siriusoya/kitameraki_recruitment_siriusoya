@@ -13,8 +13,9 @@ function TaskListPage() {
   const handleIntersection = async (entries) => {
     if (entries[0].isIntersecting) {
       console.log('Element is in viewport!');
-      await delay(1250);
+      await delay(1000);
       setPageIndex(prevPageIndex => prevPageIndex + 1);
+      console.log(pageIndex)
     }
   };
 
